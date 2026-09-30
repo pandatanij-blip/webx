@@ -1,0 +1,5 @@
+import { nav, site } from "@/data/site";
+
+export default function Footer() {
+  return <footer className="foot"><div className="wrap"><div className="foot__top"><div><a className="logo" href="#main" aria-label="WebX home"><img src="/images/WebX_logo_original.png" alt="WebX" /></a><p className="foot__tag">Digital experiences for ambitious businesses.</p></div><div className="foot__links"><div><h3>Explore</h3>{nav.slice(0, 5).map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}</div><div><h3>Start here</h3><a href="#contact">Start a project</a><a href={`mailto:${site.email}`}>{site.email}</a><a href={`tel:${site.phone.replace(/\D/g, "")}`}>{site.phone}</a></div><div><h3>Connect</h3>{site.socials.map((social) => <a key={social.label} href={social.href} target={social.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">{social.label} ↗</a>)}</div></div></div><div className="foot__bottom"><span>{site.copyright}</span><span>Built with intent <b>WEBX</b></span></div></div></footer>;
+}
